@@ -4,6 +4,7 @@ using System.Text;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using SuvillianceSystem.RabbitMQClient.Infrastructure;
+using SuvillianceSystem.RabbitMQClient.Concrete;
 
 namespace SuvillianceSystem.RabbitMQClient.Concrete
 {
@@ -15,10 +16,12 @@ namespace SuvillianceSystem.RabbitMQClient.Concrete
         private readonly EventingBasicConsumer consumer;
         private readonly BlockingCollection<string> respQueue = new BlockingCollection<string>();
         private readonly IBasicProperties props;
+        private IConnectorFactoryInfor Connector{get;set;}
 
-        public RpcClient()
+        public RpcClient(IConnectorFactoryInfor connector)
         {
-            var factory = new ConnectionFactory() { HostName = "localhost" };
+            this.Connector = connector;
+            var factory = new ConnectionFactory() { HostName = this.Connector.Host };
 
             connection = factory.CreateConnection();
             channel = connection.CreateModel();
