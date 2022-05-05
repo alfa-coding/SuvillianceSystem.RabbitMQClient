@@ -16,9 +16,9 @@ namespace SuvillianceSystem.RabbitMQClient.Concrete
         private readonly EventingBasicConsumer consumer;
         private readonly BlockingCollection<string> respQueue = new BlockingCollection<string>();
         private readonly IBasicProperties props;
-        private IConnectorFactoryInfor Connector{get;set;}
+        private IConnectorFactoryInfo Connector {get;set;}
 
-        public RpcClient(IConnectorFactoryInfor connector)
+        public RpcClient(IConnectorFactoryInfo connector)
         {
             this.Connector = connector;
             var factory = new ConnectionFactory() { HostName = this.Connector.Host };

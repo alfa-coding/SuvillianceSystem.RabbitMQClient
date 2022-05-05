@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using SuvillianceSystem.RabbitMQ_Models.Concrete;
 
-namespace SuvillianceSystem.RabbitMQClient.Concrete.Infrastructure
+namespace SuvillianceSystem.RabbitMQClient.Infrastructure
 {
     public interface IConnectorFactoryInfo
     {

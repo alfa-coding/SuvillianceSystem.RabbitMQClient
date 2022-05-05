@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using SuvillianceSystem.RabbitMQ_Models.Concrete;
+using SuvillianceSystem.RabbitMQClient.Infrastructure;
 
 namespace SuvillianceSystem.RabbitMQClient.Concrete
 {
